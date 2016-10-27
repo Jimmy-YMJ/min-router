@@ -3,13 +3,15 @@ const urlUtils = require('simple-url');
 
 const regexRouters = [];
 const stringRouters = {};
-var onMismatch = () => {};
+var emptyFunc = () => {};
+var onMismatch;
 
 module.exports = {
-  registerMismatch: mismatch => {
-    onMismatch = mismatch || onMismatch;
+  createMismatch: mismatch => {
+    onMismatch = mismatch || emptyFunc;
   },
-  register: (route, callback, strict) => {
+  create: (route, callback, strict) => {
+    callback = callback || emptyFunc;
     var compiled = routeCompiler.compile(route, strict);
     if(compiled.tokens.length === 0){
       stringRouters[route] = callback;
@@ -20,7 +22,7 @@ module.exports = {
       regexRouters.push([compiled, callback]);
     }
   },
-  trigger: (url, data) => {
+  match: (url, data) => {
     var urlObj = urlUtils.parse(url),
       path = urlObj.pathname;
     urlObj.url = url;
@@ -39,7 +41,7 @@ module.exports = {
         i ++;
       }
     }
-    onMismatch(url, data);
+    onMismatch({url: urlObj, data: data});
     return false;
   }
 };
