@@ -1,5 +1,5 @@
 {
-  "name": "simple-router",
+  "name": "min-router",
   "version": "1.0.0",
   "description": "A basic router concentrating on route parsing and callback registration.",
   "main": "router.js",
