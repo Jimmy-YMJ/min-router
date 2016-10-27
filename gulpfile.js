@@ -46,8 +46,8 @@ gulp.task('lib', ['clean'], function () {
 });
 
 gulp.task('build', ['lib'], function () {
-  bundle('./build/modules/router.js', 'simpleRouter', './build/router.js');
-  bundleMin('./build/modules/router.js', "simpleRouter", './build/router.min.js');
+  bundle('./build/modules/router.js', 'miniRouter', './build/router.js');
+  bundleMin('./build/modules/router.js', "miniRouter", './build/router.min.js');
 });
 
 gulp.task('eslint', function () {
