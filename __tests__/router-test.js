@@ -43,14 +43,14 @@ const testCases = [
 ];
 
 testCases.forEach(test => {
-  router.register(test.route, (request) => {
-    it(`'${test.url}' trigger ${test.route}`, () => {
+  router.create(test.route, (request) => {
+    it(`'${test.url}' match ${test.route}`, () => {
       expect(request).toEqual(test.request);
     });
   });
   if(test.useStrict){
-    router.register(test.route, (request) => {
-      it(`'${test.url}' trigger strict ${test.route}`, () => {
+    router.create(test.route, (request) => {
+      it(`'${test.url}' match strict ${test.route}`, () => {
         expect(request).toBe(undefined);
       });
     }, true);
@@ -58,15 +58,18 @@ testCases.forEach(test => {
 });
 
 testCases.forEach(test => {
-  router.trigger(test.url);
+  router.match(test.url);
 });
 
 
-router.registerMismatch((url) => {
+router.createMismatch((request) => {
   it('test mismatch', () => {
-    expect(url)
-      .toBe('/nothing');
+    expect(request)
+      .toEqual({
+        url: createUrlObj('/nothing'),
+        data: 'some data'
+      });
   });
 });
 
-router.trigger('/nothing');
+router.match('/nothing', 'some data');
