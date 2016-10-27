@@ -1,5 +1,5 @@
 # mini-routerjs
-This a very basic router with functionalities of parsing route and registering callbacks for browser and nodejs.
+A very basic router with functionalities of parsing route and registering callbacks for browser and nodejs.
 
 ## Installing
 Use via npm:
