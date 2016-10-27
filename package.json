@@ -6,6 +6,10 @@
   "dependencies": {
     "simple-url": "^1.1.3"
   },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Jimmy-YMJ/mini-routerjs"
+  },
   "devDependencies": {
     "babel-preset-es2015": "^6.18.0",
     "browserify": "^13.1.1",
