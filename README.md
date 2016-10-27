@@ -102,6 +102,7 @@ The **route** support following patterns:
 - `**` will match any characters, the matched part will be indexed as the order of all `*` and `**`.
 - `:name` will match a part of none '/' characters, the matched part will be indexed as 'name'.
 - `()` will make the part between it optional.
+
 | **Route** | **url** | **params** |
 | --- | --- | --- |
 | `/foo/*.gif` | `/foo/hello.gif` | `{'0': 'hello'}` |
