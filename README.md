@@ -98,8 +98,8 @@ When a **route** is matched, the corresponding **callback** will be passed a **r
 Url is parsed by [simple-url](https://github.com/Jimmy-YMJ/simple-url).
 
 The **route** support following patterns:
-- `*` will match any none '/' characters no greedy, the matched part will be indexed as the order of all `*` and `**`.
-- `**` will match any characters, the matched part will be indexed as the order of all `*` and `**`.
+- `*` will match any none '/' characters no greedy, the matched part will be indexed as the order in all `*` and `**`.
+- `**` will match any characters, the matched part will be indexed as the order of in all `*` and `**`.
 - `:name` will match a part of none '/' characters, the matched part will be indexed as 'name'.
 - `()` will make the part between it optional.
 
