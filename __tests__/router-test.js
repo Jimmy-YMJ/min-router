@@ -1,5 +1,7 @@
-var router = require('../build/router.min');
+var Router = require('../build/router.min');
 var parseUrl = require('simple-url').parse;
+
+const router = new Router();
 
 function createUrlObj(url) {
   var urlObj = parseUrl(url);
