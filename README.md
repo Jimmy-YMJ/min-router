@@ -7,20 +7,21 @@ Use via npm:
 npm install mini-routerjs
 ```
 ```javascript
-var router = require('mini-routerjs');
+var Router = require('mini-routerjs');
 
 // Use es6 import
-import router from 'mini-routerjs';
+import Router from 'mini-routerjs';
 ```
 Use in browser:
 
-Scripts for browser is under [build](https://github.com/Jimmy-YMJ/mini-routerjs/tree/master/build) directory, use `router.js` for development (contains inline source maps) or use `router.min.js` for production. The reference in browser is `window.miniRouter`.
+Scripts for browser is under [build](https://github.com/Jimmy-YMJ/mini-routerjs/tree/master/build) directory, use `router.js` for development (contains inline source maps) or use `router.min.js` for production. The reference in browser is `window.MiniRouter`.
 
 ## Examples
 
 Create a common route:
 ```javascript
-var router = require('mini-routerjs');
+var Router = require('mini-routerjs'),
+    router = new Router();
 
 router.create('/foo/:name/bar', function(request){
   console.log(request);
@@ -57,8 +58,9 @@ router.match('/foo/jimmy/bar?foo=bar', 'some data');
 
 Create a mismatch route:
 ```javascript
-var router = require('mini-routerjs');
-
+var router = require('mini-routerjs'),
+  router = new Router();
+  
 router.createMismatch(function(request){
   console.log(request);
 });
