@@ -1,6 +1,6 @@
 {
   "name": "mini-routerjs",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A basic router concentrating on route parsing and callback registration.",
   "main": "router.js",
   "dependencies": {
