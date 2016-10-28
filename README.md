@@ -95,7 +95,7 @@ When a **route** is matched, the corresponding **callback** will be passed a **r
   data: data // The data passed by match method.
 }
 ```
-Url is parsed by [simple-url](https://www.npmjs.com/package/simple-url).
+Url is parsed by [simple-url](https://github.com/Jimmy-YMJ/simple-url).
 
 The **route** support following patterns:
 - `*` will match any none '/' characters no greedy, the matched part will be indexed as the order of all `*` and `**`.
