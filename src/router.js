@@ -2,7 +2,8 @@ const routeCompiler = require('./lib/route-compiler');
 const urlUtils = require('simple-url');
 var emptyFunc = () => {};
 
-function Router(){
+function Router(options){
+  this.options = options || {};
   this.regexRouters = [];
   this.stringRouters = {};
   this.onMismatch = emptyFunc;
@@ -15,6 +16,7 @@ Router.prototype = {
     }
   },
   create: function(route, callback, strict){
+    strict = typeof strict === 'boolean' ? strict : (this.options.strict || false);
     callback = callback || emptyFunc;
     var compiled = routeCompiler.compile(route, strict);
     if(compiled.tokens.length === 0){
