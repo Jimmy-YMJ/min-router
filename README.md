@@ -79,15 +79,20 @@ router.match('/no-match', 'some data');
 *  data: 'some data' }
 */
 ```
+## Constructor and methods
 
-## methods
-### router.create(route, callback, strict)
+## Router(options)
+| **Option** | **Type** | **Description** |
+| --- | --- | --- |
+| strict | `Boolean` | Enable strict routing. `false` by default, '/foo' and '/foo/' are treated the same by the router. |
+
+### Router.create(route, callback, strict)
 
 | **Params** | **Type** | **Description** |
 | --- | --- | --- |
 | route | `String` |  The route pattern. |
 | callback | `Function` | The callback which will be called when the route is matched, default `function(){}` |
-| strict | `Boolean` | Enable strict routing. `false` by default, '/foo' and '/foo/' are treated the same by the router. |
+| strict | `Boolean` | This will override the constructor's strict option. |
 
 When a **route** is matched, the corresponding **callback** will be passed a **request** param and executed. The **request** param has a structure like:
 ```javascript
@@ -115,10 +120,10 @@ The **route** support following patterns:
 | `/foo/(:bar/hello)` | `/foo/bar/hello` | `{'bar': 'bar'}` |
 | `/foo/(:bar/hello)` | `/foo/` | `{'bar': undefined}` |
 
-### router.match(url, data)
+### Router.match(url, data)
 Do a match with **url** and pass **data** to callback.
 
-### router.createMissmatch(callback);
+### Router.createMissmatch(callback);
 Create a missmatch, the **callback** will be called with a **request** param when any match is failed.
 
 ## License
