@@ -85,6 +85,7 @@ router.match('/no-match', 'some data');
 | **Option** | **Type** | **Description** |
 | --- | --- | --- |
 | strict | `Boolean` | Enable strict routing. `false` by default, '/foo' and '/foo/' are treated the same by the router. |
+| parseQuery | `Boolean` | Whether parse the query string to object, default `true`. |
 
 ### Router.create(route, callback, strict)
 
