@@ -4,7 +4,7 @@ var parseUrl = require('simple-url').parse;
 const router = new Router();
 
 function createUrlObj(url) {
-  var urlObj = parseUrl(url);
+  var urlObj = parseUrl(url, true);
   urlObj.url = url;
   return urlObj;
 }
