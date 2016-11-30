@@ -53,11 +53,11 @@ gulp.task('lib', ['clean', 'eslint'], function () {
 });
 
 gulp.task('bundle', ['lib'], function (cb) {
-  bundle('./build/modules/router.js', 'MiniRouter', './build/router.js', cb);
+  bundle('./build/modules/index.js', 'MiniRouter', './build/router.js', cb);
 });
 
 gulp.task('bundle-min', ['lib'], function (cb) {
-  bundleMin('./build/modules/router.js', "MiniRouter", './build/router.min.js', cb);
+  bundleMin('./build/modules/index.js', "MiniRouter", './build/router.min.js', cb);
 });
 
 gulp.task('test', ['bundle', 'bundle-min'], (cb) => {
