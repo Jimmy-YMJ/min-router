@@ -17,7 +17,8 @@ const testCases = [
     request: {
       url: createUrlObj('/foo/bar'),
       params: null,
-      data: undefined
+      data: undefined,
+      pattern: '/foo/bar'
     }
   },
   {
@@ -29,7 +30,8 @@ const testCases = [
       params: {
         name: 'jimmy'
       },
-      data: undefined
+      data: undefined,
+      pattern: '/foo/:name/bar'
     }
   },
   {
@@ -39,7 +41,8 @@ const testCases = [
       url: createUrlObj('/foo/bar/foo'),
       params: {
         0: 'bar/foo'
-      }
+      },
+      pattern: '/foo/**'
     }
   }
 ];
