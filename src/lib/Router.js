@@ -27,7 +27,7 @@ Router.prototype = {
         this.stringRouters[route.slice(-1) === "/" ? route.slice(0, -1) : route + "/"] = callback;
       }
     }else{
-      this.regexRouters.push([compiled, callback]);
+      this.regexRouters.push([compiled, callback, route]);
     }
   },
   match: function(url, data){
@@ -35,7 +35,12 @@ Router.prototype = {
       path = urlObj.pathname;
     urlObj.url = url;
     if(this.stringRouters[path]){
-      this.stringRouters[path]({url: urlObj, params: null, data: data});
+      this.stringRouters[path]({
+        pattern: path,
+        url: urlObj,
+        params: null,
+        data: data
+      });
       return true;
     }else{
       var i = 0, len = this.regexRouters.length, router, match;
@@ -43,7 +48,12 @@ Router.prototype = {
         router = this.regexRouters[i];
         match = router[0].regex.exec(path);
         if(match !== null){
-          router[1]({url: urlObj, params: routeCompiler.parsePath(match, router[0].tokens), data: data});
+          router[1]({
+            pattern: router[2],
+            url: urlObj,
+            params: routeCompiler.parsePath(match, router[0].tokens),
+            data: data
+          });
           return true;
         }
         i ++;
